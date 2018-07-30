@@ -1,1 +1,1 @@
-web: gunicorn obed_authentication.wsgi --log-file -
+web: gunicorn signUp_authentication.wsgi --log-file -
