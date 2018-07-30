@@ -1,0 +1,42 @@
+body{
+	margin: 0px;
+	padding: 0px;
+}
+.top-div{
+	width: 100%;
+	background-color: rgba(102,255,51,0.5);
+	height: 50px;
+	max-height: 50px;
+}
+
+.footed{
+	color: white;
+	font-weight: bold;
+	position: fixed;
+	bottom: 0px;
+	background-color: rgba(0,0,0,0.5);
+	height: 10%;
+	width: 100%;
+}
+
+.top-div ul{
+	position: absolute;
+	display: inline-block;
+	right: 0px;
+	top: 0px;
+}
+
+.top-div li{
+	display: inline;
+	margin: 5px;
+}
+
+.top-div a{
+	color: white;
+	text-decoration: none;
+}
+
+.errored{
+	color: red;
+	font-size: 10;
+}

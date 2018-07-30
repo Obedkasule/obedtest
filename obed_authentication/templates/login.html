@@ -1,0 +1,33 @@
+{% extends 'generic.html' %}
+
+
+
+{% block mainContent %}
+<script type="text/javascript">
+  	$(document).ready(function() {
+   		$("#id_country_code").change(function(){
+   			$("#c_code").val($("#id_country_code"));
+   			$(".input-group-text").text($("#id_country_code").val());
+   		});
+   
+});
+
+</script>
+	<div id="errored" style="color: red">{{ withError }}</div>
+
+	<form method="post" action="{% url 'obed_authentication:login' %}">
+		{% csrf_token %}
+		<div class="form-group">
+		    <label for="email_address">Email address</label>
+		    <input type="email" class="form-control" id="email_address" placeholder="name@example.com" name="email_address">
+		</div>
+		<div class="form-group">
+		    <label for="password">Password</label>
+		    <input type="password" class="form-control" id="password" placeholder="Password" name="pword">
+		</div>
+		<div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+		
+	</form>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "generic.html" %}
+{% block mainContent %}
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#inputPassword2").keyup(function(){
+			if($(this).val().length == 4){			
+					$("#status-btn").html(($("#inputPassword2").val() == "{{ usercode }}")
+						?'<button type="submit" class="btn btn-success">Continue</button>'
+						:'<button type="button" class="btn btn-danger">Wrong Code</button> Enter code again');
+				}
+				
+
+		});
+	});
+</script>
+	<div class="container">
+		<div>
+			<p> Please enter code Sent to the phone number you provided {{usercode}}
+		</div>
+		<div>
+			<form action="{% if page == 'register'%}
+				{% url 'obed_authentication:reg_done' %}
+				{% else %}
+				{% url 'obed_authentication:sign_in' %}
+				{% endif %}" method="post">
+				<div class="form-group mb-2">
+				    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Phone Code">
+				  </div>
+				  <div class="form-group mx-sm-3 mb-2">
+				    <input type="text" class="form-control" id="inputPassword2" placeholder="phone code">
+				    <input type="hidden" name="email" value="{{ u_email }}">
+				</div>
+				<div id="status-btn">
+					
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

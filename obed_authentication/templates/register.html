@@ -1,0 +1,52 @@
+{% extends 'generic.html' %}
+
+
+
+{% block mainContent %}
+<script type="text/javascript">
+  	$(document).ready(function() {
+   		$("#id_country_code").change(function(){
+   			$(".input-group-text").text($("#id_country_code").val());
+   		});
+   
+});
+
+</script>
+	<div id="errored" style="color: red">{{ withError }}</div>
+
+	<form method="post" action="{% url 'obed_authentication:register'%}">
+		{% csrf_token %}
+		<div class="form-group">
+		    <label for="first_name">First Name</label>
+		    <input type="text" class="form-control" id="first_name" placeholder="First name" name="f_name">
+		</div>
+
+		<div class="form-group">
+		    <label for="other_names">Other Names</label>
+		    <input type="text" class="form-control" id="other_names" placeholder="Other names" name="o_names">
+		</div>
+
+		<div class="form-group">
+		    <label for="email_address">Email address</label>
+		    <input type="email" class="form-control" id="email_address" placeholder="name@example.com" name="email">
+		</div>
+
+		<div class="form-group row">
+
+		    <div class="col-sm-4">
+		    	<label for="{{sign_form.country_code.id_for_label}}">Select County</label>
+		      	{{reg_form.country_code}}
+		    </div>
+		    
+			<div class="col-sm-3">
+			    <div class="input-group">
+			        <div class="input-group-prepend">
+			        	<div class="input-group-text"></div>
+			        </div>
+			        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Telephone Number" name="tele">
+			    </div>
+		    </div>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+{% endblock %}
