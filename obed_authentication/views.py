@@ -122,3 +122,7 @@ def loggingIn(request):
 def signIn(request):
 		return render_to_response('logged.html')
 
+def loginForm(request):
+		return render(request, 'login.html')
+
+

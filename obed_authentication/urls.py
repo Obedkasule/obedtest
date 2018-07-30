@@ -11,4 +11,5 @@ urlpatterns = [
     path('log', views.signIn, name='sign_in'),#logging in phone code
     path('done_register', views.registered, name='reg_done'),# sign up phone code
     path('logging_in', views.loggingIn, name='login'),
+    path('log_in', views.loginForm, name='logging'),
 ]
