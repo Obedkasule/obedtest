@@ -46,6 +46,10 @@ def registerUser(request):
 			errorMessage = "Email already exits"
 			return render(request, 'register.html', {'reg_form': register_form, 'withError':errorMessage})
 
+		except:
+			errorMessage = "Database error: Please try later"
+			return render(request, 'register.html', {'reg_form': register_form, 'withError':errorMessage})
+
 
 #=========sending code to phone number= using nexmo==========
 		client = nexmo.Client(key='1fc5283b', secret='7IAiZBCm8kjM5BsT')
